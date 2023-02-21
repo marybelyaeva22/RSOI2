@@ -5,14 +5,14 @@ import com.github.rsoi.service.Mark;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Goods {
+public class Product {
     private int IDProduct;
     private String nameProduct;
     private int amountOfOrders;
     private double avgMrk;
 
 
-    public Goods(int IDProduct, String nameProduct, int amountOfOrders) {
+    public Product(int IDProduct, String nameProduct, int amountOfOrders) {
         this.IDProduct = IDProduct;
         this.nameProduct = nameProduct;
         this.amountOfOrders = amountOfOrders;

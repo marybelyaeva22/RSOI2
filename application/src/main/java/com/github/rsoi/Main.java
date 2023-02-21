@@ -12,40 +12,32 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class SpringBootConsoleApplication implements CommandLineRunner {
+public class Main implements CommandLineRunner {
     private final Greeter greeter;
 
     @Autowired
-    public SpringBootConsoleApplication(Greeter greeter) {
+    public Main(Greeter greeter) {
         this.greeter = greeter;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootConsoleApplication.class, args);
+        SpringApplication.run(Main.class, args);
 	}
 
     @Override
     public void run(String... args) {
         greeter.sayHello();
 
-        ArrayList<Goods> listOfGoods = new ArrayList();
+        ArrayList<Product> listOfGoods = new ArrayList();
 
-            Goods good1 = new Goods(1, "The Magic Wand", 150);
-            listOfGoods.add(good1);
-            Goods good2 = new Goods(2, "The Book Hogwarts: A History", 109);
-            listOfGoods.add(good2);
-            Goods good3 = new Goods(3, "The Time-Turner", 20);
-            listOfGoods.add(good3);
-            Goods good4 = new Goods(4, "The Ravenclaw's Diadem", 1);
-            listOfGoods.add(good4);
-            Goods good5 = new Goods(5, "The Broomstick Nimbus 2000", 167);
-            listOfGoods.add(good5);
-            Goods good6 = new Goods(6, "The Golden Snitch", 170);
-            listOfGoods.add(good6);
-            Goods good7 = new Goods(7, "The Invisibility cloak", 3);
-            listOfGoods.add(good7);
-            Goods good8 = new Goods(8, "The Wizard Chess Set", 15);
-            listOfGoods.add(good8);
+            listOfGoods.add(new Product(1, "The Magic Wand", 150));
+            listOfGoods.add(new Product(2, "The Book Hogwarts: A History", 109));
+            listOfGoods.add(new Product(3, "The Time-Turner", 20));
+            listOfGoods.add(new Product(4, "The Ravenclaw's Diadem", 299));
+            listOfGoods.add(new Product(5, "The Broomstick Nimbus 2000", 167));
+            listOfGoods.add(new Product(6, "The Golden Snitch", 170));
+            listOfGoods.add(new Product(7, "The Invisibility cloak", 3));
+            listOfGoods.add(new Product(8, "The Wizard Chess Set", 15));
 
             int length = 7;
 
@@ -79,7 +71,7 @@ public class SpringBootConsoleApplication implements CommandLineRunner {
                             System.out.println ("Input the amount of orders:");
                             int amountAdded = added1.nextInt();
 
-                            Goods newGoods = new Goods(IDAdded, nameAdded, amountAdded);
+                            Product newGoods = new Product(IDAdded, nameAdded, amountAdded);
                             listOfGoods.add(newGoods);
                             length++;
                             break;
@@ -91,7 +83,7 @@ public class SpringBootConsoleApplication implements CommandLineRunner {
                             length--;
                             break;
                         case 3:
-                            Collections.sort(listOfGoods, Comparator.comparing(Goods::getAvgMrk));
+                            Collections.sort(listOfGoods, Comparator.comparing(Product::getAvgMrk));
                             Collections.reverse(listOfGoods);
                             for (int i = 0; i <= length; i++) {
                                 System.out.println("The goods number " + (i + 1) + ": ID is " + listOfGoods.get(i).getIDProduct() + "; the name is " + listOfGoods.get(i).getNameProduct() + "; the amount of orders is " + listOfGoods.get(i).getAmountOfOrders() + "; the average mark is " + listOfGoods.get(i).getAvgMrk());
