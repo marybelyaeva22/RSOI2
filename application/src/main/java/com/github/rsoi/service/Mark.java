@@ -1,30 +1,32 @@
 package com.github.rsoi.service;
-import java.util.Date;
 
+import java.time.LocalDate;
 
 public class Mark {
 
-    public int mark;
-   public Date certainDate;
+   public int mark;
+   public LocalDate certainDate;
 
-    public Mark() {
+    public Mark()
+    {
         this.mark = certainMark(1, 5);
-        this.certainDate = new Date(year(), month(), day());
+        this.certainDate = LocalDate.of(year(), month(), day());
     }
 
-    public int day (){
+    public int day ()
+    {
         return (int) ((Math.random() * (28 - 1)) + 1);
     }
-    public int month (){
-        return (int) ((Math.random() * (11 - 0)) + 0);
+    public int month ()
+    {
+        return (int) ((Math.random() * (11)) + 0);
     }
-
-    public int year () {
+    public int year ()
+    {
         return (int) ((Math.random() * (123 - 121)) + 121);
     }
-
-    public int certainMark (int min, int max) {
+    public int certainMark (int min, int max)
+    {
         return (int) ((Math.random() * (max - min)) + min);
     }
-
 }
